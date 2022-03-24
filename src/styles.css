@@ -1,3 +1,102 @@
+/* /src/styles.css */
+
 * {
   box-sizing: border-box;
+}
+
+body {
+  background-color: #f3f3f3;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.txt-mPlus {
+  font-size: 1.1em;
+}
+
+/* reusable classes */
+
+.appItem {
+  height: 50px;
+  border-bottom: 1px grey solid;
+}
+
+.blackSquare {
+  width: 100%;
+  height: 30px;
+  background-color: black;
+}
+
+.ftr {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+/* content */
+
+.mainContent {
+  width: 70%;
+  margin: auto;
+  margin-top: 4em;
+}
+
+#todoApp {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
+  border: 1px grey solid;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5em;
+}
+
+.bookForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5em;
+  height: 100%;
+}
+
+.bookForm input {
+  border: none;
+  width: 100%;
+  margin-right: 1em;
+  height: 70%;
+  padding-left: 0.5em;
+  font-style: italic;
+}
+
+/* booklist */
+
+/* clear completed */
+
+.clearAllBtn {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+}
+
+#clearCompleted {
+  padding: 1em;
 }
