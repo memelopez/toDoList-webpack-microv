@@ -11,6 +11,7 @@ body {
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 a {
@@ -18,16 +19,21 @@ a {
   color: black;
 }
 
-h2 {
+h2,
+p {
   margin: 0;
   padding: 0;
 }
+
+/* reusable classes */
 
 .txt-mPlus {
   font-size: 1.1em;
 }
 
-/* reusable classes */
+.txt-mLG {
+  font-size: 1.25em;
+}
 
 .appItem {
   height: 50px;
@@ -67,7 +73,7 @@ h2 {
   padding: 0 1.5em;
 }
 
-.bookForm {
+.taskForm {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -75,7 +81,7 @@ h2 {
   height: 100%;
 }
 
-.bookForm input {
+.taskForm input {
   border: none;
   width: 100%;
   margin-right: 1em;
@@ -85,6 +91,21 @@ h2 {
 }
 
 /* booklist */
+
+.normalView {
+  display: flex;
+  align-items: center;
+  padding: 0 1.5em;
+  height: 100%;
+}
+
+.edtIcn {
+  margin-left: auto;
+}
+
+.pTask {
+  margin-left: 0.5em;
+}
 
 /* clear completed */
 
