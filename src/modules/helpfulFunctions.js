@@ -15,5 +15,4 @@ const retsIndexInTaskList = (li) => {
   return index;
 };
 
-
 export { validateDescription, retsIndexInTaskList };
