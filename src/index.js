@@ -1,21 +1,18 @@
-import _ from 'lodash';
+// /src/index.js - entry point
+
 import './styles.css';
-import printMe from './print';
+import Task from './modules/task';
+import UI from './modules/ui';
 
-function component() {
-  const element = document.createElement('div');
-  const btn = document.createElement('button');
+const task1 = new Task('wash car', 1);
+const task2 = new Task('clean room', 2);
+const task3 = new Task('mow lawn', 3);
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+// tasks array
+const todos = [];
+todos.push(task1);
+todos.push(task2);
+todos.push(task3);
 
-  btn.innerHTML = 'Click me and check the console!';
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
-
-  return element;
-}
-
-document.body.appendChild(component());
+// Event: on content load
+document.addEventListener('DOMContentLoaded', UI.displayTasks(todos));
