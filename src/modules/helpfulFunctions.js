@@ -8,4 +8,4 @@ const validateDescription = (text) => {
   return true;
 };
 
-export { validateDescription };
+export default validateDescription;
