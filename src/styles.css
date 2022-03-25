@@ -107,6 +107,41 @@ p {
   margin-left: 0.5em;
 }
 
+.noToDos {
+  text-align: center;
+  align-self: center;
+  color: brown;
+  padding-top: 1em;
+}
+
+.editView {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5em;
+  background-color: lightyellow;
+}
+
+.hide {
+  display: none;
+}
+
+.editView input {
+  border: none;
+  width: 100%;
+  margin-right: 1em;
+  height: 70%;
+  padding-left: 0.5em;
+}
+
+.acceptIcn {
+  margin-left: auto;
+}
+
+.editView a {
+  padding: 0 0.25em;
+}
+
 /* clear completed */
 
 .clearAllBtn {
