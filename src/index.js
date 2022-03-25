@@ -2,7 +2,7 @@
 
 import './styles.css';
 import UI from './modules/ui';
-import { validateDescription } from './modules/helpfulFunctions';
+import validateDescription from './modules/helpfulFunctions';
 
 // Event: on content load
 document.addEventListener('DOMContentLoaded', UI.displayTasks());
@@ -55,5 +55,17 @@ document.querySelector('#taskList').addEventListener('click', (e) => {
     if (validateDescription(newDescrip)) {
       UI.updateTask(newDescrip, li);
     }
+  }
+});
+
+// Event: when checkboxes are clicked
+document.querySelector('#taskList').addEventListener('change', (e) => {
+  // checks if this is trigerring for the correct element
+  const checkedCheckbox = e.target;
+  if (checkedCheckbox.tagName === 'INPUT' && checkedCheckbox.type === 'checkbox') {
+    // Gets the state of the checked checkbox
+    const li = e.target.parentElement.parentElement;
+
+    UI.taskCompleted(li);
   }
 });

@@ -2,6 +2,7 @@
 
 import Task from './task';
 import Store from './store';
+import taskCompleted from './checkboxes';
 
 export default class UI {
   static addTask2list(task) {
@@ -26,7 +27,7 @@ export default class UI {
     text.textContent = task.description;
     text.className = 'pTask txt-mLG';
     if (task.isCompleted === true) {
-      text.classList.add('lineThrough');
+      text.classList.add('strikethr');
     }
     divNormal.appendChild(text); // appends p to item
 
@@ -167,9 +168,12 @@ export default class UI {
     const editView = lisChildren[1];
     editView.classList.add('hide');
 
-    const pos2change = li.dataset.id;
     // change task desc
     const childrenNV = normalView.children;
     childrenNV[1].textContent = newDesc;
+  }
+
+  static taskCompleted(li) {
+    taskCompleted(li);
   }
 }
