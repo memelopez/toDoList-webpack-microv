@@ -19,6 +19,10 @@ a {
   color: black;
 }
 
+a:hover {
+  color: brown;
+}
+
 h2,
 p {
   margin: 0;
@@ -140,6 +144,12 @@ p {
 
 .editView a {
   padding: 0 0.25em;
+}
+
+/* change */
+
+.strikethr {
+  text-decoration: line-through;
 }
 
 /* clear completed */
