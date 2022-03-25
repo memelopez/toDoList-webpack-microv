@@ -3,6 +3,7 @@
 import Task from './task';
 import Store from './store';
 import taskCompleted from './checkboxes';
+import { clearCompleted } from './helpfulFunctions';
 
 export default class UI {
   static addTask2list(task) {
@@ -175,5 +176,10 @@ export default class UI {
 
   static taskCompleted(li) {
     taskCompleted(li);
+  }
+
+  static clearCompleted() {
+    clearCompleted();
+    this.displayTasks();
   }
 }

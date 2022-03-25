@@ -2,7 +2,7 @@
 
 import './styles.css';
 import UI from './modules/ui';
-import validateDescription from './modules/helpfulFunctions';
+import { validateDescription } from './modules/helpfulFunctions';
 
 // Event: on content load
 document.addEventListener('DOMContentLoaded', UI.displayTasks());
@@ -68,4 +68,8 @@ document.querySelector('#taskList').addEventListener('change', (e) => {
 
     UI.taskCompleted(li);
   }
+});
+
+document.querySelector('#clearCompleted').addEventListener('click', () => {
+  UI.clearCompleted();
 });
