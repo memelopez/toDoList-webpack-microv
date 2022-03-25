@@ -1,5 +1,8 @@
 // /src/modules/helpfulFunctions - handy funcitons
 
+import Store from './store';
+import returnsUncompleted from './returnsUncompleted';
+
 // function to help validate input
 const validateDescription = (text) => {
   if (text === null || text === '') {
@@ -8,11 +11,15 @@ const validateDescription = (text) => {
   return true;
 };
 
-const retsIndexInTaskList = (li) => {
-  const ulList = document.querySelector('#taskList');
-  const nodes = Array.from(ulList.children);
-  const index = nodes.indexOf(li);
-  return index;
+const clearCompleted = () => {
+  // gets todos from local storage
+  const tasks = Store.getTasks();
+  // create new array from filter()
+  const uncompletedTasks = tasks.filter(returnsUncompleted);
+  // updates indexes
+  uncompletedTasks.forEach((todo, i) => { todo.index = i + 1; });
+
+  Store.setTasks(uncompletedTasks);
 };
 
-export { validateDescription, retsIndexInTaskList };
+export { validateDescription, clearCompleted };

@@ -2,6 +2,8 @@
 
 import Task from './task';
 import Store from './store';
+import taskCompleted from './checkboxes';
+import { clearCompleted } from './helpfulFunctions';
 
 export default class UI {
   static addTask2list(task) {
@@ -26,7 +28,7 @@ export default class UI {
     text.textContent = task.description;
     text.className = 'pTask txt-mLG';
     if (task.isCompleted === true) {
-      text.classList.add('lineThrough');
+      text.classList.add('strikethr');
     }
     divNormal.appendChild(text); // appends p to item
 
@@ -45,6 +47,7 @@ export default class UI {
 
     const inputEdit = document.createElement('input');
     inputEdit.setAttribute('type', 'text');
+    inputEdit.setAttribute('id', `input-${task.index}`);
     inputEdit.className = 'inputEdit txt-mPlus';
     inputEdit.value = task.description;
 
@@ -120,45 +123,63 @@ export default class UI {
 
     // sets focus con the input to edit
     const inputEdit = editView.querySelector('input');
-    inputEdit.id = 'inputEdit';
     inputEdit.focus();
   }
 
-  static removeTask(index, li) {
+  static removeTask(li) {
     const todos = Store.getTasks();
-    todos.splice(index, 1);
+    const i = li.dataset.id - 1;
+    todos.splice(i, 1);
     // updates indexes
-    todos.forEach((todo, index) => { todo.index = index; });
+    todos.forEach((todo, j) => { todo.index = j + 1; });
     Store.setTasks(todos);
     li.remove();
     if (todos.length === 0) {
       this.addEmptyToDoMessage();
+    } else {
+      this.reIndexLiIds();
     }
   }
 
-  static updateTask(index, newDesc, li) {
-    const todos = Store.getTasks();
-    todos[index].description = newDesc;
-    Store.setTasks(todos);
-    // changes li to normal view with new task description
-    this.changeLiToNormalView(li);
+  static reIndexLiIds() {
+    const taskList = document.querySelector('#taskList');
+    const lisTL = Array.from(taskList.children);
+    lisTL.forEach((li, i) => {
+      li.dataset.id = i + 1;
+      li.id = `todo-${i + 1}`;
+      li.children[1].children[0].id = `input-${li.dataset.id}`;
+    });
+    // console.log('ui.js - reIndex() - totalLis: ', totalLis);
   }
 
-  static changeLiToNormalView(li) {
+  static updateTask(newDesc, li) {
+    const todos = Store.getTasks();
+    const pos2change = li.dataset.id - 1;
+    todos[pos2change].description = newDesc;
+    Store.setTasks(todos);
+    // changes li to normal view with new task description
+    this.changeLiToNormalView(newDesc, li);
+  }
+
+  static changeLiToNormalView(newDesc, li) {
     const lisChildren = li.children;
     // change clases of divs
     const normalView = lisChildren[0];
     normalView.classList.remove('hide');
-
     const editView = lisChildren[1];
     editView.classList.add('hide');
 
-    const index = li.dataset.id;
-    // console.log('inside changeLi2NV - index: ', index);
-    const todos = Store.getTasks();
-
     // change task desc
     const childrenNV = normalView.children;
-    childrenNV[1].textContent = todos[index - 1].description;
+    childrenNV[1].textContent = newDesc;
+  }
+
+  static taskCompleted(li) {
+    taskCompleted(li);
+  }
+
+  static clearCompleted() {
+    clearCompleted();
+    this.displayTasks();
   }
 }

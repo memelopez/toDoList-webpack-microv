@@ -17,6 +17,11 @@ ul {
 a {
   text-decoration: none;
   color: black;
+  padding: 0.5em;
+}
+
+a:hover {
+  color: brown;
 }
 
 h2,
@@ -140,6 +145,12 @@ p {
 
 .editView a {
   padding: 0 0.25em;
+}
+
+/* change */
+
+.strikethr {
+  text-decoration: line-through;
 }
 
 /* clear completed */
