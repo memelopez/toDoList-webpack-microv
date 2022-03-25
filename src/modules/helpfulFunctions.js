@@ -8,11 +8,4 @@ const validateDescription = (text) => {
   return true;
 };
 
-const retsIndexInTaskList = (li) => {
-  const ulList = document.querySelector('#taskList');
-  const nodes = Array.from(ulList.children);
-  const index = nodes.indexOf(li);
-  return index;
-};
-
-export { validateDescription, retsIndexInTaskList };
+export { validateDescription };

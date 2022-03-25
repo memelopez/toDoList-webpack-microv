@@ -37,8 +37,6 @@ document.querySelector('#taskList').addEventListener('click', (e) => {
   const classesArr = classesIcn.split(' ');
 
   const li = e.target.parentElement.parentElement.parentElement;
-  // console.log(li);
-  const index = li.dataset.id - 1;
 
   // Event: when the three dots icon gets clicked
   if (classesArr.indexOf('edtIcn') !== -1) {
@@ -47,14 +45,15 @@ document.querySelector('#taskList').addEventListener('click', (e) => {
 
   // Event: when the check icon gets clicked to REMOVE
   if (classesArr.indexOf('removeIcn') !== -1) {
-    UI.removeTask(index, li);
+    UI.removeTask(li);
   }
 
-  // Event: when the the trash icon gets clicked to UPDATE
+  // Event: when the the accept icon gets clicked to UPDATE
   if (classesArr.indexOf('acceptIcn') !== -1) {
-    const newDesc = document.querySelector('#inputEdit').value.trim();
-    if (validateDescription(newDesc)) {
-      UI.updateTask(index, newDesc, li);
+    const inputId = `input-${li.dataset.id}`;
+    const newDescrip = document.getElementById(inputId).value.trim();
+    if (validateDescription(newDescrip)) {
+      UI.updateTask(newDescrip, li);
     }
   }
 });
