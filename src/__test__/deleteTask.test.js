@@ -7,7 +7,7 @@ describe('Tests to see if a task is deleted from LocaclStorage and HTML DOM', ()
     expect(deleteTask(-1)).toBeFalsy();
   });
 
-  test("should return false when index (e) is greater than length of stored ToDo's. No Todo's stored right now.", () => {
+  test("should return false when index (3) is greater than length of stored ToDo's. No Todo's stored right now.", () => {
     expect(deleteTask(3)).toBeFalsy();
   });
 
