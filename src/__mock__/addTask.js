@@ -13,7 +13,7 @@ const addNewTask = (description) => {
     Store.setTasks();
     const tasklist = globaldocument.getElementById('task');
 
-    const div = document.createElement('div');
+    const li = document.createElement('li');
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
     checkbox.checked = neo.isCompleted;
@@ -22,10 +22,10 @@ const addNewTask = (description) => {
     const span = document.createElement('span');
     span.textContent = 'delete';
 
-    div.appendChild(checkbox);
-    div.appendChild(p);
-    div.appendChild(span);
-    tasklist.appendChild(div);
+    li.appendChild(checkbox);
+    li.appendChild(p);
+    li.appendChild(span);
+    tasklist.appendChild(li);
 
     return true;
   }
