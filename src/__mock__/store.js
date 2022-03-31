@@ -9,9 +9,9 @@ export default class Store {
 
   static getTasksWith3Tasks() {
     const todos = [];
-    const neo = new Task('Cook dinner', false, 0);
-    const trinity = new Task('Cook dinner', true, 1);
-    const morpheous = new Task('Cook dinner', false, 2);
+    const neo = new Task('Make breakfast', 1);
+    const trinity = new Task('Cook lunch', 2);
+    const morpheous = new Task('Buy dinner', 3);
 
     todos.push(neo);
     todos.push(trinity);
