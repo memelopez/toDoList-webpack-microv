@@ -20,8 +20,8 @@ const domHtml = new JSDOM(`<!DOCTYPE html>
             <input id="input-list"  type="text">
             <input type="submit"  value="Add task">
         </div>
-        <div id="task">
-        </div>
+        <ul id="task">
+        </ul>
         <button class="deletebtn" type="button">Clear All Completed </button>
     </div>
 </body>
