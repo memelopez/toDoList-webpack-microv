@@ -1,4 +1,4 @@
-// /src/modules/helpfulFunctions - handy funcitons
+// /src/modules/helpfulFunctions - handy funcitons to have 
 
 import Store from './store';
 import returnsUncompleted from './returnsUncompleted';
