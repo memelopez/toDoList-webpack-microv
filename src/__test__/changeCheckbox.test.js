@@ -13,7 +13,7 @@ describe('Tests for changing status of a checkbox:', () => {
   test('should return true when index is valid (2, true).', () => {
     expect(changeCheckbox(1, true)).toBeTruthy();
   });
-  
+
   test('should return true when checkbox status from previous test was updated in the DOM.', () => {
     expect(verifyCheckboxStatus(1, true)).toBeTruthy();
   });
