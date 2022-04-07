@@ -1,4 +1,4 @@
-// __tests__/addTask
+// /src/__mock__/addTask.js - functions that mock adding a task
 import { globaldocument } from '../../dynamic';
 
 import { validateDescription } from '../modules/helpfulFunctions';
@@ -32,10 +32,6 @@ const addNewTask = (description) => {
   return false;
 };
 
-const getAmountOfTaskFromDOM = () => {
-  const tasklist = globaldocument.getElementById('task-list');
-  const taskListLength = tasklist.children.length;
-  return taskListLength;
-};
+const getAmountOfTaskFromDOM = () => globaldocument.getElementById('task-list').children.length;
 
 export { addNewTask, getAmountOfTaskFromDOM };
