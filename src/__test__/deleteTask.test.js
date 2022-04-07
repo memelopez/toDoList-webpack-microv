@@ -17,7 +17,6 @@ describe('Tests to delete a task from DOM and storage:', () => {
     addNewTask('mow lawn', 3);
     expect(deleteTask2(2)).toBeTruthy();
   });
-
   test('should return the amount of tasks in DOM which is 2 now, because we added 3 tasks initally and deleted one.', () => {
     expect(getAmountOfTaskFromDOM()).toBe(2);
   });

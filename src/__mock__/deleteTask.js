@@ -8,7 +8,6 @@ const deleteTask = (index) => {
     return false;
   }
   todos = todos.splice(index - 1, 1);
-
   const tasklist = globaldocument.getElementById('task-list');
   const taskListchildren = tasklist.children;
   const item2remove = taskListchildren[index - 1];
@@ -24,7 +23,6 @@ const deleteTask2 = (index) => {
     return false;
   }
   todos = todos.splice(index - 1, 1);
-
   const tasklist = globaldocument.getElementById('task-list');
   const taskListchildren = tasklist.children;
   const item2remove = taskListchildren[index - 1];
